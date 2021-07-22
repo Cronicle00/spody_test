@@ -24,7 +24,7 @@ namespace Develop
             // 여기 밑에 구현해주세요.
             if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 좌측 클릭 시 true
             {
-                //Touch(Input.mousePosition);
+                Touch(Input.mousePosition);
             }
         }
 
@@ -53,19 +53,19 @@ namespace Develop
              */
 
             // 여기 밑에 구현해주세요.
-            //ray = Camera.main.ScreenPointToRay(mousePosition);
+            ray = Camera.main.ScreenPointToRay(mousePosition);
 
-            //if (Physics.Raycast(ray, out hit))
-            //{
-            //    if (hit.collider.CompareTag("Player"))
-            //    {
-            //        ICharacterHandler character = hit.collider.GetComponent<ICharacterHandler>();
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    ICharacterHandler character = hit.collider.GetComponent<ICharacterHandler>();
 
-            //        character.HitPoint(hit.point);
+                    character.HitPoint(hit.point);
 
-            //        character.Touch();
-            //    }
-            //}
+                    character.Touch();
+                }
+            }
         }
     }
 }
